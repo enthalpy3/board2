@@ -25,6 +25,7 @@
                 <tr><td>제목</td><td><input type="text" name="title" value="${sessionScope.post.title}"></td></tr>
                 <tr><td>내용</td><td><input type="text" name="text" value="${sessionScope.post.text}"></td></tr>
                 <tr><td>작성날짜</td><td>${sessionScope.post.reg_date}</td></tr>
+                <tr><td>test</td><td>정상작동</td></tr>
                 <tr><td colspan=2><input type="submit" value="수정"></td></tr>
             </table>
         </form>

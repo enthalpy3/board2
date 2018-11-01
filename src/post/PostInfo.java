@@ -7,6 +7,15 @@ public class PostInfo {
 	private String title;
 	private String text;
 	private Timestamp reg_date;
+	private int pk;
+
+	public int getPk() {
+		return pk;
+	}
+
+	public void setPk(int pk) {
+		this.pk = pk;
+	}
 
 	public String getName() {
 		return name;

@@ -1,27 +1,31 @@
 package post;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.Timestamp;
 
 public class PostDao extends CommonDao {
 	/*
 	 * 신규 글 등록
 	 */
-	public int insertPost(PostInfo member) {
+	public int insertPost(PostInfo post) {
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO post VALUES(?,?,?,?)";
+		String query = "INSERT INTO post VALUES(?,?,?,?,?)";
 		int res = 0;
 		openConnection();
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getTitle());
-			pstmt.setString(3, member.getText());
+			pstmt.setString(1, post.getName());
+			pstmt.setString(2, post.getTitle());
+			pstmt.setString(3, post.getText());
 			// pstmt.setString(4, member.getPhone());
 			// pstmt.setString(5, member.getEmail());
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
 			pstmt.setTimestamp(4, ts);
+			pstmt.setInt(5, post.getPk());
 			res = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,7 +80,7 @@ public class PostDao extends CommonDao {
 	}
 
 	/*
-	 * 회원가입 여부 확인
+	 * 글확인
 	 */
 	
 	public boolean isPost(String name, String title) {
@@ -124,6 +128,50 @@ public class PostDao extends CommonDao {
 		} finally {
 			closeConnection();
 		}
+		return post;
+	}
+	/*
+	 * 게시글 전체보기
+	 */
+	public PostInfo getPost2(String title) {
+		
+		String rPath = request.getContextPath();
+	
+		PostInfo post = new PostInfo();
+		String query = "select * from post ORDER BY pk DESC";
+		
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String url = "jdbc:mysql://localhost:3306/my_site?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+		String user = "root";
+		String pw = "zxcv1234";
+
+		try {
+			// mysqlbd 주소
+			// Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// mariadb 주소
+			openConnection();
+			Class.forName("org.mariadb.jdbc.Driver");
+			con = DriverManager.getConnection(url, user, pw);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select * from post ORDER BY pk DESC");
+			while (rs.next()) {
+				System.out.println("out.print("+"\"<tr>\""+")");
+				System.out.println("out.print("+"\"<td>\"" + rs.getString("pk") + "\"</td>\""+")");
+				System.out.println("out.print("+"\"<td>\"" + "<h3><a href=\"" + rPath + "/DS/post_info.jsp\"" + ">\""+")");
+				System.out.println("out.print("+rs.getString("title") + "</a></h3>" + "</td>\""+")");
+				// out.print("<td>" + rs.getString("title") + "</td>");
+				System.out.println("out.print("+"\"<td>" + rs.getString("text") + "</td>\""+")");
+				System.out.println("out.print("+"\"<td>" + rs.getString("reg_date") + "</td>\""+")");
+				System.out.println("out.print("+"\"</tr>\""+")");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			rs.close();
+		}
+	
+		
 		return post;
 	}
 }
