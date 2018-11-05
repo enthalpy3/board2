@@ -22,6 +22,13 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     
+    <jsp-config>
+		<taglib>
+			<taglib-uri>ElFunctions</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/el-functions.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+    
     <!-- <servlet>
         <servlet-name>ControllerAction2</servlet-name>
         <servlet-class>post.controller.ControllerAction</servlet-class>

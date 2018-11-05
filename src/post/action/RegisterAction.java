@@ -39,6 +39,6 @@ public class RegisterAction implements CommandAction {
 
 		request.setAttribute("message", text);
 
-		return "post_info.jsp";
+		return "post_list.jsp";
 	}
 }
