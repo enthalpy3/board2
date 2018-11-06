@@ -4,3 +4,4 @@ WebContent/static/css/.DS_Store
 build/
 .project
 .classpath
+/bin/

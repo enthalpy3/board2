@@ -18,6 +18,12 @@
     </jsp:attribute>
     <jsp:body>
         <h1>비품목록</h1>
+        <tr>
+        	<td>품명</td>
+        	<td>모델번호</td>
+        	<td>수량</td>
+        </tr>
+        <br />
         <%-- <form action="${pageContext.request.contextPath}/user/update.do" method="post">
             <table>
                 <tr><th colspan=2>회원정보</th></tr>
@@ -31,6 +37,8 @@
   		${list.equipname}
   		${list.model}
 		</c:forEach>
+		<a href="${pageContext.request.contextPath}/MS/equip_form.do"><input type="button" value="입고등록"/></a>		
+		<a href="${pageContext.request.contextPath}/MS/equip_assign.do"><input type="button" value="비품배정"/></a>
     </jsp:body>
 </t:genericpage>
         <%-- <%
