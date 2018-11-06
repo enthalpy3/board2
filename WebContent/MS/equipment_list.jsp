@@ -3,6 +3,8 @@
 <%@page session="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@page import="java.sql.*" %>
+<%@page import="equipment.EquipDao" %>
 
 <t:genericpage>
     <jsp:attribute name="head">
@@ -16,19 +18,47 @@
     </jsp:attribute>
     <jsp:body>
         <h1>비품목록</h1>
-        <form action="${pageContext.request.contextPath}/user/update.do" method="post">
-            <input type="hidden" name="id" value="${sessionScope.member.id}"/>
+        <%-- <form action="${pageContext.request.contextPath}/user/update.do" method="post">
             <table>
                 <tr><th colspan=2>회원정보</th></tr>
-                <tr><td>아이디</td><td>${sessionScope.member.id}</td></tr>
-                <tr><td>비밀번호</td><td><input type="password" name="pass" value="${sessionScope.member.pass}"></td></tr>
-                <tr><td>이름</td><td><input type="text" name="name" value="${sessionScope.member.name}"></td></tr>
-                <tr><td>전화번호</td><td><input type="text" name="phone" value="${sessionScope.member.phone}"></td></tr>
-                <tr><td>이메일</td><td><input type="text" name="email" value="${sessionScope.member.email} "></tr>
-                <tr><td>가입날짜</td><td>${sessionScope.member.reg_date}</td></tr>
+                <tr><td>${sessionScope.equipment.equipname}</td>
+                <td>${sessionScope.equipment.model}</td></tr>
                 <tr><td colspan=2><input type="submit" value="수정"></td></tr>
             </table>
-        </form>
-        <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
+        </form> --%>
+         
+        <c:forEach items="${sessionScope.equipment}" var="list" >  
+  		${list.equipname}
+  		${list.model}
+		</c:forEach>
     </jsp:body>
 </t:genericpage>
+        <%-- <%
+        request.setCharacterEncoding("utf-8");		
+		EquipDao data = new EquipDao();
+		String rPath = request.getContextPath();
+		
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;		
+		
+		String url = "jdbc:mysql://localhost:3306/lteam";
+		String user = "jsp_user";
+		String pass = "qqsseer1";
+		
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			con = DriverManager.getConnection(url, user, pass);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select * from equipment");
+			while (rs.next()) {
+				out.println("<tr>");
+				out.println("<td>" + rs.getString("equipname") + "</td>");
+				out.println("<td>" + rs.getString("model") + "</td>" + "<br>");
+				out.println("</tr>");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	%>
+ --%>

@@ -30,6 +30,7 @@
                 <tr><td colspan=2><input type="submit" value="수정"></td></tr>
             </table>
         </form>
+        <a href="${pageContext.request.contextPath}/MS/equip_list.do">비품</a>
         <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
         <a href="${pageContext.request.contextPath}/user/delete.do?=${ID}">회원탈퇴</a>
     </jsp:body>

@@ -8,7 +8,7 @@ public class EquipInfo {
 	private String model;
 	private String state;
 	private Timestamp reg_date;
-	private int pk;
+	private Integer num;
 	
 	public String getEquipname() {
 		return equipname;
@@ -33,5 +33,17 @@ public class EquipInfo {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public Timestamp getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Timestamp reg_date) {
+		this.reg_date = reg_date;
+	}
+	public Integer getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
 	}
 }
