@@ -10,4 +10,4 @@
 <c:if test="${empty ID }">
     <a href="${pageContext.request.contextPath}/user/register_form.do">회원가입</a>
 </c:if>
-<div>머릿말</div>
+<div>어서오세요~!! 반갑습니다.</div>

@@ -19,10 +19,10 @@
             <div>${requestScope.message }</div>
         </c:if>
         <c:if test="${not empty ID }">
-            <a href="${pageContext.request.contextPath}/home.do">글작성하기</a>
+            <a href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
         </c:if>
         <c:if test="${empty ID }">
-            <a href="${pageContext.request.contextPath}/DS/post_form.do">글작성으로 돌아가기</a>
+            <a href="${pageContext.request.contextPath}/DS/post_form.do"> 돌아가기</a>
         </c:if>
     </jsp:body>
 </t:genericpage>

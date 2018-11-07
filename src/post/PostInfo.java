@@ -3,18 +3,27 @@ package post;
 import java.sql.Timestamp;
 
 public class PostInfo {
+	private String id;
 	private String name;
 	private String title;
 	private String text;
 	private Timestamp reg_date;
-	private int pk;
+	private String pk;
 
-	public int getPk() {
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getPk() {
 		return pk;
 	}
 
-	public void setPk(int pk) {
-		this.pk = pk;
+	public void setPk(String string) {
+		this.pk = string;
 	}
 
 	public String getName() {

@@ -14,7 +14,7 @@
         <!-- 꼬릿말 추가 -->
     </jsp:attribute>
     <jsp:body>
-        <h1>홈</h1>
+        <h1>메인페이지에 오신걸 환영합니다.</h1>
         <c:if test="${not empty requestScope.message}">
             <div>${requestScope.message }</div>
         </c:if>

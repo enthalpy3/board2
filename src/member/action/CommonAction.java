@@ -29,6 +29,9 @@ public class CommonAction {
             case "email":
                 member.setEmail(request.getParameter("email"));
                 break;
+            case "recommender":
+            	member.setRecommender(request.getParameter("recommender"));
+            	break;
             }
         }
 
