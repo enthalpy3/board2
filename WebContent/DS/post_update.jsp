@@ -6,7 +6,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:genericpage>
     <jsp:attribute name="head">
-        <title>update</title>
+        <title>post_update</title>
     </jsp:attribute>
     <jsp:attribute name="header">
         <!-- 페이지 머리말 -->
@@ -23,7 +23,7 @@
             <a href="${pageContext.request.contextPath}/home.do">로그인 화면으로 돌아가기</a>
         </c:if>
         <c:if test="${empty TITLE }">
-            <a href="${pageContext.request.contextPath}/DS/register_form.do">회원 가입 화면으로 돌아가기</a>
+            <a href="${pageContext.request.contextPath}/DS/post_list.do">돌아가기</a>
         </c:if>
     </jsp:body>
 </t:genericpage>

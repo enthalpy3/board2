@@ -27,11 +27,11 @@ public class RegisterAction implements CommandAction {
                 // 1.열려있는 세션을 가져온다.
                 HttpSession session = request.getSession(false);
                 // 2.새로운 세션을 만들기 전에 이전의 세션의 모든 데이터를 무효화한다.
-                if(session != null) {
+               if(session != null) {
                     session.invalidate();
                 }
                 // 3.새로운 세션을 만든다.
-                session = request.getSession(true);
+               session = request.getSession(true);
                 session.setAttribute("ID", member.getId());
                 text = "회원가입에 성공하였습니다.";
             } else {

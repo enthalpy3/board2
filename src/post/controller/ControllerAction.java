@@ -11,7 +11,7 @@ public class ControllerAction extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
         // Common properties
-        loadProperties("post.properties/Command");
+        loadProperties("member.properties/Command");
     }
 
     // properties 설정

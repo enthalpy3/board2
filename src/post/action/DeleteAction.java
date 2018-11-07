@@ -4,8 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.MemberDao;
+import member.controller.CommandAction;
 import post.PostDao;
-import post.controller.CommandAction;
 
 public class DeleteAction implements CommandAction {
 
@@ -21,13 +22,13 @@ public class DeleteAction implements CommandAction {
 
         if (id != null) {
             if (data.removePost(id) != 0) {
-                text = "글을삭제 했다.";
-                
+                text = "회원정보 삭제하였습니다.";
+                session.invalidate();
             } else {
-                text = "삭제하지 못했습니다.";
+                text = "회원정보 삭제하지 못했습니다.";
             }
         } else {
-            response.sendRedirect(request.getContextPath()+"/home.do");
+            response.sendRedirect(request.getContextPath()+"/DS/post_info2.do");
             return null;
         }
 

@@ -8,6 +8,7 @@
 <head>
 <meta charset="utf-8">
 <!-- 반응형 메타태그 - 부트스트랩은 Mobile First -->
+<title>김도성</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css"
@@ -15,6 +16,24 @@
 <!-- 개별 페이지의 head -->
 <jsp:invoke fragment="head" />
 </head>
+<style>
+body {
+	width: 100%;
+	background-color: lightblue;
+}
+
+body > div {
+	font-family: verdana;
+	font-size: 12px;
+	background-color: lightgrey;
+	width: 100%;
+	border: 5px solid green;
+	padding: 5px;
+	margin: 5px;
+	text-align: center;
+	overflow:auto;
+}
+</style>
 <body>
 	<div class="container">
 		<header>
@@ -29,7 +48,8 @@
 			<jsp:include page="/common/bottom.jsp" flush="false" />
 		</footer>
 		<!-- 옵션: jQuery, Popper.js, Bootstrap JS 순으로 추가 -->
-		
+		<script
+			src="${pageContext.request.contextPath}/static/js/validation.js"></script>
 		<script
 			src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.slim.min.js"></script>
 		<script

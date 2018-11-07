@@ -14,6 +14,9 @@ public class CommonAction {
         while (parameterNames.hasMoreElements()) {
             String paramName = (String)parameterNames.nextElement();
             switch(paramName) {
+            case "id":
+            	post.setId(request.getParameter("id"));
+            	break;
             case "name":
                 post.setName(request.getParameter("name"));
                 break;
@@ -23,6 +26,9 @@ public class CommonAction {
             case "text":
                 post.setText(request.getParameter("text"));
                 break;          
+            case "pk":
+            	post.setPk(request.getParameter("pk"));
+            	break;          
             }
         }
 

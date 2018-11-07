@@ -4,11 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.MemberDao;
+import member.MemberInfo;
+import member.controller.CommandAction;
 import post.PostDao;
 import post.PostInfo;
-import post.controller.CommandAction;
 
-public class MemberInfoAction implements CommandAction {
+public class PostInfoAction2 implements CommandAction {
 
     @Override
     public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -23,7 +25,7 @@ public class MemberInfoAction implements CommandAction {
             session.setAttribute("post", post);
         }        
 
-        return "post_info.jsp";
+        return "post_info2.jsp";
     }
 
 }

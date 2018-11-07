@@ -10,8 +10,16 @@ public class MemberInfo {
     private String email;
     private Timestamp reg_date;
     private int num;
+    private String recommender;
+    
 
-    public int getNum() {
+    public String getRecommender() {
+		return recommender;
+	}
+	public void setRecommender(String recommender) {
+		this.recommender = recommender;
+	}
+	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {

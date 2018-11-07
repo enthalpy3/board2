@@ -17,18 +17,22 @@
         <h1>글쓰기</h1>
         <form action="${pageContext.request.contextPath}/DS/post_reg.do"
                 method="post">
-            <table>
+            <table border=2 width="100%">
                 <tr>
-                    <td>이름</td>
-                    <td><input type="text" name="name" value="${sessionScope.member.name}"/></td>
+                    <td width="10%">아이디</td>
+                    <td width="90%">${sessionScope.member.id}<input type="hidden" name="id" value="${sessionScope.member.id}"/></td>
                 </tr>
                 <tr>
-                    <td>제목</td>
-                    <td><input type="text" name="title" /></td>
+                    <td width="10%">이름</td>
+                    <td width="90%">${sessionScope.member.name}<input type="hidden" name="name" value="${sessionScope.member.name}"/></td>
                 </tr>
                 <tr>
-                    <td>내용</td>
-                    <td><input type="text" name="text" /></td>
+                    <td width="10%">제목</td>
+                    <td><input style="width:100%" type="text" name="title" /></td>
+                </tr>
+                <tr>
+                    <td width="10%">내용</td>
+                    <td height="500px"><input  style="width:100%; height:auto"  type="text" name="text" /></td>
                 </tr>
                 <tr>
                     <td colspan=2><input type="submit" value="저장" /></td>

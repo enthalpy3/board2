@@ -10,7 +10,7 @@ public class MemberDao extends CommonDao {
      */
     public int insertMember(MemberInfo member) {
         PreparedStatement pstmt = null;
-        String query = "INSERT INTO member VALUES(?,?,?,?,?,?,?)";
+        String query = "INSERT INTO member VALUES(?,?,?,?,?,?,?,?)";
         int res = 0;
         openConnection();
         try {
@@ -21,8 +21,9 @@ public class MemberDao extends CommonDao {
             pstmt.setString(4, member.getPhone());
             pstmt.setString(5, member.getEmail());
             Timestamp ts = new Timestamp(System.currentTimeMillis());
-            pstmt.setTimestamp(6, ts);
-            pstmt.setInt(7, member.getNum());
+            pstmt.setTimestamp(7, ts);
+            pstmt.setInt(8, member.getNum());
+            pstmt.setString(6, member.getRecommender());
             res = pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,7 +58,7 @@ public class MemberDao extends CommonDao {
      */
     public int updateMember(MemberInfo member) {
         PreparedStatement pstmt = null;
-        String query = "UPDATE member SET pass=?, name=?, phone=?, email=? WHERE id=?";
+        String query = "UPDATE member SET pass=?, name=?, phone=?, email=?, recommender=? WHERE id=?";
         int res = 0;
         openConnection();
         try {
@@ -66,7 +67,8 @@ public class MemberDao extends CommonDao {
             pstmt.setString(2, member.getName());
             pstmt.setString(3, member.getPhone());
             pstmt.setString(4, member.getEmail());
-            pstmt.setString(5, member.getId());
+            pstmt.setString(5, member.getRecommender());
+            pstmt.setString(6, member.getId());
             res = pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +79,7 @@ public class MemberDao extends CommonDao {
     }
     
     /*
-     * 회원가입 여부 확인
+     * 회원가입 중복확인
      */
     public boolean isMember(String id, String pass) {
         PreparedStatement pstmt = null;
@@ -118,6 +120,7 @@ public class MemberDao extends CommonDao {
             member.setPhone(rs.getString("phone"));
             member.setEmail(rs.getString("email"));
             member.setReg_date(rs.getTimestamp("reg_date"));
+            member.setRecommender(rs.getString("recommender"));
             rs.close();
         } catch (Exception e) {
             e.printStackTrace();

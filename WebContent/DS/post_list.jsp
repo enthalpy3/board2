@@ -11,6 +11,12 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="elfunc" uri="ElFunctions"%>
 
+<%
+	request.setCharacterEncoding("utf-8");
+%>
+<%
+	String rPath = request.getContextPath();
+%>
 
 <t:genericpage>
 	<jsp:attribute name="head">
@@ -21,23 +27,46 @@
     </jsp:attribute>
 	<jsp:attribute name="footer">
         <!-- 꼬리말 추가 -->
-        <script
-			src="${pageContext.request.contextPath}/static/js/user.js"></script>
+       
     </jsp:attribute>
 	<jsp:body>
 	
         <h1>글목록</h1>
-            <table border=2>
+            <table border=2 width="100%">
             <tr>
-			<th>순번</th>
-			<th>제목</th>
-			<th>내용:${getPostInfo.post.text}</th>
-			<th>글쓴 날짜</th>
-			<c:forEach var="i" begin="1" end="10" step="1">
-			${i}
-			</c:forEach>
+			<th width="5%">순번</th>
+			<th width="5%">이름</th>
+			<th width="30%">제목</th>
+			<th width="50%">내용</th>
+			<th width="10%">글쓴 날짜</th>
+			<h1>${sessionScope.post}</h1>
 		
+		<%-- <c:forEach var="lsit" items="${sessionScope.post}">
+			<tr>
+				<td>
+			${list.pk}
+			</td>
+			<td>
+			${list.name}
+			</td>
+			<td>
+			${list.title}
+			</td>
+			<td>
+			${list.text}
+			</td>
+			<td>
+			${list.reg_date}
+			</td>
+			</tr>
+		</c:forEach> --%>
+			
+		<jsp:include page="/DS/post_list2.jsp" flush="false" />
+			
 		</table>
+		<a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
+        <a href="${pageContext.request.contextPath}/DS/post_list.do">글보기1</a>
+        <a href="${pageContext.request.contextPath}/DS/post_list.do2">글보기2</a>
     </jsp:body>
 </t:genericpage>
 
