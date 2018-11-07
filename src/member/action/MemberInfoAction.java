@@ -21,9 +21,7 @@ public class MemberInfoAction implements CommandAction {
         if (id != null) {
             MemberInfo member = data.getMember(id);
             session.setAttribute("member", member);
-        }        
-
+        }
         return "member_info.jsp";
     }
-
 }

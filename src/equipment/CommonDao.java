@@ -1,4 +1,4 @@
-package member;
+package equipment;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
