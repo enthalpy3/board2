@@ -9,6 +9,8 @@ public class EquipInfo {
 	private String state;
 	private Timestamp reg_date;
 	private Integer num;
+	private Integer quantity;
+	private Integer count;
 	
 	public String getEquipname() {
 		return equipname;
@@ -45,5 +47,17 @@ public class EquipInfo {
 	}
 	public void setNum(Integer num) {
 		this.num = num;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 }

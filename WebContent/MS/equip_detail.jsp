@@ -20,4 +20,3 @@
         <h1>비품상세보기</h1>
     </jsp:body>
 </t:genericpage>
-        

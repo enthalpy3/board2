@@ -32,11 +32,15 @@
                 <tr><td colspan=2><input type="submit" value="수정"></td></tr>
             </table>
         </form> --%>
-         
-        <c:forEach items="${sessionScope.equipment}" var="list" >  
-  		${list.equipname}
-  		${list.model}
-		</c:forEach>
+             
+        <c:forEach items="${sessionScope.equip}" var="listNum" >
+        <td>${listNum.model}</td>        
+        <td>${listNum.count}</td>
+        <br />
+        </tr>
+        </c:forEach>
+		
+		<br />
 		<a href="${pageContext.request.contextPath}/MS/equip_form.do"><input type="button" value="입고등록"/></a>		
 		<a href="${pageContext.request.contextPath}/MS/equip_assign.do"><input type="button" value="비품배정"/></a>
     </jsp:body>
