@@ -19,16 +19,16 @@ public class ListAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
         EquipDao data = new EquipDao();
-        List list = new ArrayList();
 
         HttpSession session = request.getSession();
         String id = (String)session.getAttribute("ID");
 
         if (id != null) {
-            EquipInfo equipment = data.getEquip();
-            list.add(equipment);
+            List list = data.getEquip();
             session.setAttribute("equipment", list);
+            List listNum = data.getquan();
+            session.setAttribute("equip", listNum);
         }
-		return "equipment_list.jsp";
+		return "equip_list.jsp";
 	}
 }
