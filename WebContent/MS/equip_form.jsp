@@ -14,12 +14,13 @@
         <!-- 페이지 머리말 -->
     </jsp:attribute>
     <jsp:attribute name="footer">
+		<a href="${pageContext.request.contextPath}/MS/equip_list.do"><button>입고목록</button></a>
         <!-- 페이지 꼬리말 -->
         <script src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.slim.min.js"></script>
     </jsp:attribute>
     <jsp:body>
         <h1>비품등록</h1>
-        <form action="${pageContext.request.contextPath}/MS/equip_reg.do" method="post">
+        <form action="${pageContext.request.contextPath}/MS/equip_form_reg.do" method="post">
             <table>
                 <tr>
                     <td>품명</td>
@@ -28,13 +29,10 @@
                 <tr>
                     <td>모델번호</td>
                     <td><input type="text" name="model" /></td>
+                    <td><input type="hidden" name="state" value="입고" /></td>
                 </tr>
                 <tr>
-                    <td>수량</td>
-                    <td><input type="text" name="" /></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="등록" onSubmit="return check()" /></td>
+                    <td><input type="submit" value="등록" /></td>
                 	<td><input type="reset" value="취소" /></td>
                 </tr>
             </table>

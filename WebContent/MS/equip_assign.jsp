@@ -14,11 +14,12 @@
         <!-- 페이지 머리말 -->
     </jsp:attribute>
     <jsp:attribute name="footer">
+		<a href="${pageContext.request.contextPath}/MS/equip_list.do"><button>입고목록</button></a>
         <!-- 페이지 꼬리말 -->
     </jsp:attribute>
     <jsp:body>
         <h1>비품배정</h1>
-        <form action="${pageContext.request.contextPath}/MS/equip_assign.do" method="post">
+        <form action="${pageContext.request.contextPath}/MS/equip_assign_reg.do" method="post">
             <table>
                 <tr>
                     <td>사용자 이름</td>
@@ -33,7 +34,7 @@
                     <td><input type="text" name="num" /></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="등록" onSubmit="return check()" /></td>
+                    <td><input type="submit" value="등록" /></td>
                 	<td><input type="reset" value="취소" /></td>
                 </tr>
             </table>

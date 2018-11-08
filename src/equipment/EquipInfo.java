@@ -8,8 +8,8 @@ public class EquipInfo {
 	private String model;
 	private String state;
 	private Timestamp reg_date;
-	private Integer num;
-	private Integer quantity;
+	private String date;
+	private String num;
 	private Integer count;
 	
 	public String getEquipname() {
@@ -42,17 +42,17 @@ public class EquipInfo {
 	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
 	}
-	public Integer getNum() {
+	public String getNum() {
 		return num;
 	}
-	public void setNum(Integer num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
-	public Integer getQuantity() {
-		return quantity;
+	public String getDate() {
+		return date;
 	}
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public Integer getCount() {
 		return count;

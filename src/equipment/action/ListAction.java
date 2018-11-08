@@ -24,10 +24,8 @@ public class ListAction implements CommandAction {
         String id = (String)session.getAttribute("ID");
 
         if (id != null) {
-            List list = data.getEquip();
-            session.setAttribute("equipment", list);
-            List listNum = data.getquan();
-            session.setAttribute("equip", listNum);
+            List listNum = data.getQuan();
+            session.setAttribute("equipment", listNum);
         }
 		return "equip_list.jsp";
 	}
