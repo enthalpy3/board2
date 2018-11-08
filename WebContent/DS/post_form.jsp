@@ -16,7 +16,7 @@
     <jsp:body>
         <h1>글쓰기</h1>
         <form action="${pageContext.request.contextPath}/DS/post_reg.do"
-                method="post">
+                method="post" id="text">
             <table border=2 width="100%">
                 <tr>
                     <td width="10%">아이디</td>
@@ -28,11 +28,16 @@
                 </tr>
                 <tr>
                     <td width="10%">제목</td>
-                    <td><input style="width:100%" type="text" name="title" /></td>
+                    <td><input placeholder="제목없음" style="width:100%" type="text" name="title" maxlength="50"/></td>
                 </tr>
                 <tr>
                     <td width="10%">내용</td>
-                    <td height="500px"><input  style="width:100%; height:auto"  type="text" name="text" /></td>
+                    <td height="500px">
+
+                   <!--  <input type="hidden" name="text" id="text" /> -->
+                    <textarea name="text" style="width:100%; height:500px" maxlength="500" form="text"></textarea>
+
+                    </td>
                 </tr>
                 <tr>
                     <td colspan=2><input type="submit" value="저장" /></td>

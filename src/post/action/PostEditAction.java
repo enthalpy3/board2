@@ -10,7 +10,7 @@ import member.controller.CommandAction;
 import post.PostDao;
 import post.PostInfo;
 
-public class PostInfoAction2 implements CommandAction {
+public class PostEditAction implements CommandAction {
 
     @Override
     public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -18,14 +18,14 @@ public class PostInfoAction2 implements CommandAction {
         PostDao data = new PostDao();
 
         HttpSession session = request.getSession();
-        String id = (String)session.getAttribute("ID");
+        String pk = (String)request.getParameter("pk");
 
-        if (id != null) {
-            PostInfo post = data.getPost(id);
+        if (pk != null) {
+            PostInfo post = data.getPost(pk);
             session.setAttribute("post", post);
         }        
 
-        return "post_info2.jsp";
+        return "post_edit.jsp";
     }
 
 }

@@ -29,12 +29,12 @@ public class RegisterAction implements CommandAction {
                 // 1.열려있는 세션을 가져온다.
                 HttpSession session = request.getSession(false);
                 session.setAttribute("ID", post.getId());
-                text = "회원가입에 성공하였습니다.";
+                text = " 성공하였습니다.";
             } else {
-                text = "회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요.";
+                text = " 실패하였습니다. 잠시 후 다시 시도해 주세요.";
             }
         } else {
-            text = "이미 가입된 아이디입니다. 다시 작성해 주세요.";
+            text = "다시 작성해 주세요.";
         }
 
         request.setAttribute("message", text);

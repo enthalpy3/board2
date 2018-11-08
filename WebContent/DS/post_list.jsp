@@ -18,6 +18,7 @@
 	String rPath = request.getContextPath();
 %>
 
+
 <t:genericpage>
 	<jsp:attribute name="head">
         <title>register_form</title>
@@ -36,9 +37,10 @@
             <tr>
 			<th width="5%">순번</th>
 			<th width="5%">이름</th>
-			<th width="30%">제목</th>
+			<th width="25%">제목</th>
 			<th width="50%">내용</th>
-			<th width="10%">글쓴 날짜</th>
+			<th width="8%">글쓴날짜</th>
+			<th width="7%">상세보기</th>
 			<h1>${sessionScope.post}</h1>
 		
 		<%-- <c:forEach var="lsit" items="${sessionScope.post}">

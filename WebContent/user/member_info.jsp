@@ -37,6 +37,6 @@
         <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
         <a href="${pageContext.request.contextPath}/DS/post_list.do">글보기1</a>
         <a href="${pageContext.request.contextPath}/DS/post_list.do2">글보기2</a>
-        <a href="${pageContext.request.contextPath}/user/delete.do?=${NAME}">회원탈퇴</a>
+        <a href="${pageContext.request.contextPath}/user/delete.do?=${ID}">회원탈퇴</a>
     </jsp:body>
 </t:genericpage>

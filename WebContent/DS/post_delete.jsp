@@ -20,10 +20,10 @@
             <div>${requestScope.message }</div>
         </c:if>
         <c:if test="${not empty TITLE }">
-            <a href="${pageContext.request.contextPath}/DS/member_info.do">자세히보기</a>
+            <a href="${pageContext.request.contextPath}/DS/post_list.do">자세히보기</a>
         </c:if>
         <c:if test="${empty TITLE }">
-            <a href="${pageContext.request.contextPath}/home.do">게시글 목록보기</a>
+            <a href="${pageContext.request.contextPath}/DS/post_list.do">게시글 목록보기</a>
         </c:if>
     </jsp:body>
 </t:genericpage>
