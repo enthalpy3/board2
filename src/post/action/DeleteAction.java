@@ -15,17 +15,17 @@ public class DeleteAction implements CommandAction {
 
         PostDao data = new PostDao();
 
-        HttpSession session = request.getSession();
-        String id = (String)session.getAttribute("ID");
+        //HttpSession session = request.getSession();
+        String pk = (String)request.getParameter("pk");
         
         String text = null;
 
-        if (id != null) {
-            if (data.removePost(id) != 0) {
-                text = "회원정보 삭제하였습니다.";
-                session.invalidate();
+        if (pk != null) {
+            if (data.removePost(pk) != 0) {
+                text = "삭제하였습니다.";
+                
             } else {
-                text = "회원정보 삭제하지 못했습니다.";
+                text = "삭제하지 못했습니다.";
             }
         } else {
             response.sendRedirect(request.getContextPath()+"/DS/post_info2.do");
