@@ -8,10 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import equipment.EquipDao;
 import equipment.EquipInfo;
-import equipment.action.CommonAction;
 import member.controller.CommandAction;
 
-public class EquipRegisterAction implements CommandAction {
+public class EquipReturnAction  implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("utf-8");
@@ -21,15 +20,16 @@ public class EquipRegisterAction implements CommandAction {
         
         EquipDao data = new EquipDao();
         String text = null;
+        String model = null;
 
-        if (data.insertEquip(equipment) != 0) {
-            text = "비품등록에 성공하였습니다.";
+        if (data.returnUsername(equipment) != 0) {
+            text = "비품반납에 성공하였습니다.";
         } else {
-            text = "비품등록에 실패하였습니다. 잠시 후 다시 시도해 주세요.";
+            text = "비품반납에 실패하였습니다. 잠시 후 다시 시도해 주세요.";
         }
 
         request.setAttribute("message", text);
         
-		return "reg_form.jsp";
+		return "reg_return.jsp";
 	}
 }

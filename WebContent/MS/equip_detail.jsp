@@ -33,9 +33,28 @@
         		<td>${list.count}</td>
         	</tr>
        		</c:forEach>
-       		<tr>
-       			<td>${sessionScope.username.username}</td>
-        	</tr>
+       		<tr><td>현재 사용자 명단</td></tr>
+       		<c:forEach items="${sessionScope.username}" var="user" >
+        	<tr>
+        		<td>${user.username}</td>
+        		<td>
+        		<form action="${pageContext.request.contextPath}/MS/equip_return.do" method="post">
+        			<input type="hidden" name="num" value="${user.num}"/>
+        			<input type="hidden" name="username" value="배정가능"/>
+        			<input type="submit" value="반납" />
+        		</form>
+        		</td>
+        		</tr>
+       		</c:forEach>       		
+       		<tr><td>배정 가능 비품</td></tr>
+       		<c:forEach items="${sessionScope.assignEquip}" var="assignEquip" >
+        	<tr>
+        		<td>${assignEquip.num}</td>
+        		<td>
+        		<a href="${pageContext.request.contextPath}/MS/equip_assign2.do?num=${assignEquip.num}" ><button>비품배정</button></a>
+        		</td>
+        		</tr>
+       		</c:forEach>       		
         </table>
     </jsp:body>
 </t:genericpage>

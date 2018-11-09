@@ -26,9 +26,11 @@ public class EquipDetailAction implements CommandAction {
             EquipInfo equipment = data.getEquip(model);
             session.setAttribute("equip", equipment);
             
-            EquipInfo username = data.getUser(model);
-            session.setAttribute("username", username);
+            List user = data.getUser(model);
+            session.setAttribute("username", user);
             
+            List assignEquip = data.getAssignEquip(model);
+            session.setAttribute("assignEquip", assignEquip);
         }
 		return "equip_detail.jsp";
 	}

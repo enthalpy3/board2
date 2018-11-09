@@ -1,6 +1,5 @@
 package equipment.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,24 +8,21 @@ import javax.servlet.http.HttpSession;
 
 import equipment.EquipDao;
 import equipment.EquipInfo;
-import member.MemberDao;
-import member.MemberInfo;
 import member.controller.CommandAction;
 
-
-public class ListAction implements CommandAction {
+public class EquipAssignAction2 implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
         EquipDao data = new EquipDao();
 
         HttpSession session = request.getSession();
-        String id = (String)session.getAttribute("ID");
+        String num = (String)request.getParameter("num");
 
-        if (id != null) {
-            List listNum = data.getQuan();
-            session.setAttribute("equipment", listNum);
+        if (num != null) {            
+            EquipInfo equipment = data.getAssignNum(num);
+            session.setAttribute("equip", equipment);
         }
-		return "equip_list.jsp";
+        return "equip_assign2.jsp";
 	}
 }

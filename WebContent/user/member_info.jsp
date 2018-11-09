@@ -18,7 +18,7 @@
     
     <jsp:body>
         <h1>회원정보</h1>
-        <form action="${pageContext.request.contextPath}/user/update.do" method="post" onSubmit="return check();">
+        <form action="${pageContext.request.contextPath}/user/update.do" method="post" onSubmit="return check();" class="form">
             <input type="hidden" name="id" value="${sessionScope.member.id}"/>
             <table>
                 <tr><th colspan=2>회원정보</th></tr>

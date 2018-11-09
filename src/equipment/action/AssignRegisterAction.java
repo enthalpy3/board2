@@ -1,7 +1,10 @@
 package equipment.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import equipment.EquipDao;
 import equipment.EquipInfo;
@@ -26,6 +29,7 @@ public class AssignRegisterAction implements CommandAction {
 
         request.setAttribute("message", text);
         
+		
 		return "reg_assign.jsp";
 	}
 }

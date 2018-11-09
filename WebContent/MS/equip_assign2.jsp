@@ -22,16 +22,18 @@
         <form action="${pageContext.request.contextPath}/MS/equip_assign_reg.do" method="post">
             <table>
                 <tr>
-                    <td>사용자 이름</td>
-                    <td><input type="text" name="username"/></td>
-                </tr>
-                <tr>
                     <td>품명</td>
-                    <td><input type="text" name="equipname" /></td>
+                    <td>${sessionScope.equip.equipname}</td>
+                    <input type="hidden" name="equipname" value="${sessionScope.equip.equipname}"/>
                 </tr>
                 <tr>
                     <td>고유번호</td>
-                    <td><input type="text" name="num" /></td>
+                    <td>${sessionScope.equip.num}</td>
+                	<input type="hidden" name="num" value="${sessionScope.equip.num}"/>
+                </tr>
+                <tr>
+                    <td>사용자 이름</td>
+                    <td><input type="text" name="username"/></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="등록" /></td>

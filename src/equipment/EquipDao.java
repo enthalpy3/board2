@@ -83,29 +83,6 @@ public class EquipDao extends CommonDao {
         }
         return list;
     }
-	
-	public EquipInfo getUser(String model) {
-        PreparedStatement pstmt = null;
-        EquipInfo username = new EquipInfo();
-        String query = "SELECT * FROM equipment WHERE model=? AND username IS NOT NULL";
-        openConnection();
-        try {
-            pstmt = con.prepareStatement(query);
-            pstmt.setString(1, model);
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            username.setUsername(rs.getString("username"));
-            username.setNum(rs.getString("num"));
-            username.setState(rs.getString("state"));            
-            username.setReg_date(rs.getTimestamp("reg_date"));
-            rs.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
-        return username;
-    }
 
 	//상세보기 페이지에 사용
 	public EquipInfo getEquip(String model) {
@@ -133,7 +110,32 @@ public class EquipDao extends CommonDao {
         return equipment;
     }
 	
-	//비품 배정
+	public EquipInfo getAssignNum(String num) {
+        PreparedStatement pstmt = null;
+        EquipInfo equipment = new EquipInfo();
+        String query = "SELECT * FROM equipment WHERE num=?";
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, num);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            equipment.setEquipname(rs.getString("equipname"));
+            equipment.setUsername(rs.getString("username"));
+            equipment.setModel(rs.getString("model"));
+            equipment.setState(rs.getString("state"));
+            equipment.setNum(rs.getString("num"));
+            equipment.setReg_date(rs.getTimestamp("reg_date"));
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return equipment;
+    }
+	
+	//비품 배정 유저이름 수정하기
 	public int addUsername(EquipInfo equipment) {
 		PreparedStatement pstmt = null;
         String query = "UPDATE equipment SET username=? WHERE equipname=? AND num=?";
@@ -152,8 +154,83 @@ public class EquipDao extends CommonDao {
         }
         return res;
 	}
-	
 
+	//상세페이지에서 사용자 명단 불러오기
+	public List getUser(String model) {
+        PreparedStatement pstmt = null;
+
+        List user = new ArrayList();
+        String query = "SELECT * FROM equipment WHERE model=? AND username != '배정가능'";
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, model);
+            ResultSet rs = pstmt.executeQuery();
+            for(int i=0; rs.next(); i++) {
+            	EquipInfo username = new EquipInfo();
+            	username.setUsername(rs.getString("username"));
+            	username.setNum(rs.getString("num"));
+            	username.setState(rs.getString("state"));            
+            	username.setReg_date(rs.getTimestamp("reg_date"));
+
+            	user.add(i, username);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return user;
+    }
+	
+	//상세페이지에서 사용자 명단 불러오기
+	public List getAssignEquip(String model) {
+        PreparedStatement pstmt = null;
+
+        List assignEquip = new ArrayList();
+        String query = "SELECT * FROM equipment WHERE model=? AND username = '배정가능'";
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, model);
+            ResultSet rs = pstmt.executeQuery();
+            for(int i=0; rs.next(); i++) {
+            	EquipInfo username = new EquipInfo();
+            	username.setUsername(rs.getString("username"));
+            	username.setNum(rs.getString("num"));
+            	username.setState(rs.getString("state"));            
+            	username.setReg_date(rs.getTimestamp("reg_date"));
+
+            	assignEquip.add(i, username);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return assignEquip;
+    }
+	
+	//비품 반납 유저이름 수정하기
+	public int returnUsername(EquipInfo equipment) {
+		PreparedStatement pstmt = null;
+        String query = "UPDATE equipment SET username=? WHERE num=?";
+        int res = 0;
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, equipment.getUsername());
+            pstmt.setString(2, equipment.getNum());
+            res = pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return res;
+	}
 	
 	//상세보기페이지 사용
 	/*public List getDetail() {

@@ -35,8 +35,8 @@
         	</tr>
         	</c:forEach>		
 		</table>
-		<a href="${pageContext.request.contextPath}/MS/equip_form.do"><input type="button" value="입고등록"/></a>		
-		<a href="${pageContext.request.contextPath}/MS/equip_assign.do"><input type="button" value="비품배정"/></a>
+		<a href="${pageContext.request.contextPath}/MS/equip_form.do">입고등록</a>		
+		<a href="${pageContext.request.contextPath}/MS/equip_assign1.do">비품배정</a>
     </jsp:body>
 </t:genericpage>
 
