@@ -30,6 +30,7 @@
                     <td>모델번호</td>
                     <td><input type="text" name="model" /></td>
                     <td><input type="hidden" name="state" value="입고" /></td>
+                    <td><input type="hidden" name="username" value="배정가능" /></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="등록" /></td>

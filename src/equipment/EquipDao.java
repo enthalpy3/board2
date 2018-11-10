@@ -184,6 +184,30 @@ public class EquipDao extends CommonDao {
         return user;
     }
 	
+	//username 불러오기
+	public List getMember() {
+		PreparedStatement pstmt = null;
+		List username = new ArrayList();
+		String query = "SELECT * FROM member";
+		openConnection();
+		try {
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			for(int i=0; rs.next(); i++) {
+				MemberInfo member = new MemberInfo();
+				member.setName(rs.getString("name"));
+
+				username.add(i, member);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection();
+		}
+		return username;
+	}
+	
 	//상세페이지에서 사용자 명단 불러오기
 	public List getAssignEquip(String model) {
         PreparedStatement pstmt = null;
@@ -231,6 +255,7 @@ public class EquipDao extends CommonDao {
         }
         return res;
 	}
+	
 	
 	//상세보기페이지 사용
 	/*public List getDetail() {

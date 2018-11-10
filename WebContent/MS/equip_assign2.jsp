@@ -33,7 +33,13 @@
                 </tr>
                 <tr>
                     <td>사용자 이름</td>
-                    <td><input type="text" name="username"/></td>
+                <td>
+                <select name="username">
+                <c:forEach items="${sessionScope.username}" var="username" >
+                	<option value="${username.name}">${username.name}</option>
+        		</c:forEach>
+        		</select>
+        		</td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="등록" /></td>

@@ -18,10 +18,15 @@ public class EquipAssignAction2 implements CommandAction {
 
         HttpSession session = request.getSession();
         String num = (String)request.getParameter("num");
+        String id = (String)session.getAttribute("ID");
 
         if (num != null) {            
             EquipInfo equipment = data.getAssignNum(num);
             session.setAttribute("equip", equipment);
+        }
+        if (id != null) {
+            List username = data.getMember();
+            session.setAttribute("username", username);
         }
         return "equip_assign2.jsp";
 	}

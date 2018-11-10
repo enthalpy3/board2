@@ -22,16 +22,22 @@
         <form action="${pageContext.request.contextPath}/MS/equip_assign_reg.do" method="post">
             <table>
                 <tr>
-                    <td>사용자 이름</td>
-                    <td><input type="text" name="username"/></td>
-                </tr>
-                <tr>
                     <td>품명</td>
                     <td><input type="text" name="equipname" /></td>
                 </tr>
                 <tr>
                     <td>고유번호</td>
                     <td><input type="text" name="num" /></td>
+                </tr>
+                <tr>
+                    <td>사용자 이름</td>
+                <td>
+                <select name="username">
+                <c:forEach items="${sessionScope.username}" var="username" >
+                	<option value="${username.name}">${username.name}</option>
+        		</c:forEach>
+        		</select>
+        		</td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="등록" /></td>
