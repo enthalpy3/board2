@@ -7,7 +7,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:genericpage>
     <jsp:attribute name="head">
-        <title>member_info</title>
+        <title>post_info</title>
     </jsp:attribute>
     <jsp:attribute name="header">
         <!-- 페이지 머리말 -->
@@ -23,7 +23,7 @@
                  <input type="hidden" name="name" id="name" value="${sessionScope.post.name}"/>
                  <input type="hidden" name="pk" id="pk" value="${sessionScope.post.pk}"/>
             <table border=2 width="100%" style="text-align:left">
-                <tr><th colspan=2>회원정보</th></tr>
+                <tr><th colspan=2>글 정보</th></tr>
                 <tr><td width="10%">이름</td><td width="90%">${sessionScope.post.name}</td></tr>
                 <tr><td width="10%">순번</td><td width="90%">${sessionScope.post.pk}</td></tr>
                 <tr><td width="10%">제목</td><td><input style="width:100%" type="text" name="title" id="title" value="${sessionScope.post.title}"></td></tr>

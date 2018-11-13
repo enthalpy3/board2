@@ -10,6 +10,6 @@ public class RegisterFormAction implements CommandAction {
     @Override
     public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-        return "file_upload.jsp";
+        return "register_form.jsp";
     }
 }
