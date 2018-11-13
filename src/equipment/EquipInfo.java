@@ -11,7 +11,21 @@ public class EquipInfo {
 	private String date;
 	private String num;
 	private Integer count;
-	
+	private String reg_date2;
+	private String quantity;
+
+	public String getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+	public String getReg_date2() {
+		return reg_date2;
+	}
+	public void setReg_date2(String reg_date2) {
+		this.reg_date2 = reg_date2;
+	}
 	public String getEquipname() {
 		return equipname;
 	}

@@ -18,7 +18,7 @@
     
     <jsp:body>
         <h1>회원정보</h1>
-        <form action="${pageContext.request.contextPath}/user/update.do" method="post" onSubmit="return check();" class="form">
+        <form action="${pageContext.request.contextPath}/user/update.do" method="post" onSubmit="return check();" id="form">
             <input type="hidden" name="id" value="${sessionScope.member.id}"/>
             <table>
                 <tr><th colspan=2>회원정보</th></tr>
@@ -33,6 +33,7 @@
                 <tr><td colspan=2><input type="submit" value="수정"></td></tr>
             </table>
         </form>
+        <br />
         <a href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록</a>
         <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
         <a href="${pageContext.request.contextPath}/DS/post_list.do">글보기1</a>

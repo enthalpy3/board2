@@ -31,6 +31,12 @@ public class CommonAction {
             case "num":
             	equipment.setNum(request.getParameter("num"));
             	break;
+            case "reg_date2":
+            	equipment.setReg_date2(request.getParameter("reg_date2"));
+            	break;
+            case "quantity":
+            	equipment.setQuantity(request.getParameter("quantity"));
+            	break;
             }
         }
         return equipment;
