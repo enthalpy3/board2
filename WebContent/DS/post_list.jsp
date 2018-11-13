@@ -31,7 +31,6 @@
        
     </jsp:attribute>
 	<jsp:body>
-	
         <h1>글목록</h1>
             <table border=2 width="100%">
             <tr>
@@ -42,6 +41,7 @@
 			<th width="8%">글쓴날짜</th>
 			<th width="7%">상세보기</th>
 			<h1>${sessionScope.post}</h1>
+	     		
 		
 		<%-- <c:forEach var="lsit" items="${sessionScope.post}">
 			<tr>

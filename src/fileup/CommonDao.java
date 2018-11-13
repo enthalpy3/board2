@@ -1,4 +1,4 @@
-package post;
+package fileup;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,12 +6,9 @@ import java.sql.DriverManager;
 public class CommonDao {
     Connection con;
     // String url = "jdbc:mysql://localhost:3306/my_site?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-   /* String url = "jdbc:mysql://localhost:3306/lteam";
+    String url = "jdbc:mysql://localhost:3306/lteam";
     String user = "jsp_user";
-    String pass = "zxcv1234";*/
-    String url = "jdbc:mysql://localhost:3306/lteam?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-	String user = "jsp_user";
-	String pass = "zxcv1234";
+    String pass = "zxcv1234";
 
     public Connection openConnection() {
         try {

@@ -3,6 +3,10 @@ package member;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import equipment.EquipInfo;
 
 public class MemberDao extends CommonDao {
     /*
@@ -129,4 +133,29 @@ public class MemberDao extends CommonDao {
         }
         return member;
     }
+    
+ // 이름을 추가한다?
+ 	public List getMemberList() {
+         PreparedStatement pstmt = null;
+         List listNum = new ArrayList();
+//         String query = "SELECT name, COUNT(*) as count FROM equipment WHERE state='입고' GROUP BY model";
+         String query = "SELECT name FROM member";
+         openConnection();
+         try {
+             pstmt = con.prepareStatement(query);
+             ResultSet rs = pstmt.executeQuery();
+             for(int i=0; rs.next(); i++) {
+             	MemberInfo member = new MemberInfo();
+             	member.setName(rs.getString("name"));
+             	listNum.add(i, member);
+             }
+             rs.close();
+         } catch (Exception e) {
+             e.printStackTrace();
+         } finally {
+             closeConnection();
+         }
+         return listNum;
+     }
+
 }
