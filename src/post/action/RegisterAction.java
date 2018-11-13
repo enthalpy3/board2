@@ -1,13 +1,10 @@
 package post.action;
 
-import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import member.MemberDao;
-import member.MemberInfo;
 import member.controller.CommandAction;
 import post.PostDao;
 import post.PostInfo;
@@ -24,7 +21,7 @@ public class RegisterAction implements CommandAction {
         PostDao data = new PostDao();
         String text = null;
 
-        if (data.isPost(post.getId())) {
+
             if (data.insertPost(post) != 0) {
                 // 1.열려있는 세션을 가져온다.
                 HttpSession session = request.getSession(false);
@@ -33,9 +30,7 @@ public class RegisterAction implements CommandAction {
             } else {
                 text = " 실패하였습니다. 잠시 후 다시 시도해 주세요.";
             }
-        } else {
-            text = "다시 작성해 주세요.";
-        }
+       
 
         request.setAttribute("message", text);
 

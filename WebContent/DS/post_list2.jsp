@@ -29,7 +29,7 @@
 		stmt = con.createStatement();
 		rs = stmt.executeQuery("select * from post ORDER BY pk DESC");
 		while (rs.next()) {
-			out.print("<form action="+"\""+rPath+"/DS/post_detail.do\""+"method=\""+"post"+"\""+">");
+			out.print("<form action="+"\""+rPath+"/DS/post_detail.do\""+">");
 			out.print("<tr>");
 			out.print("<td>"+"<span name="+"\"demo\""+">"+ rs.getString("pk")+"</span>"+ "</td>");
 			out.print("<td>" + rs.getString("name") + "</td>");

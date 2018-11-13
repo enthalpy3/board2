@@ -8,13 +8,7 @@ import javax.servlet.http.HttpSession;
 import member.controller.CommandAction;
 import post.PostDao;
 import post.PostInfo;
-import member.MemberDao;
-import member.MemberInfo;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Connection;
 
 public class PostListAction implements CommandAction {
 

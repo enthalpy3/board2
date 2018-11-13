@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import equipment.EquipInfo;
+
 public class PostDao extends CommonDao {
 	/*
 	 * 신규 글 등록
@@ -113,7 +115,7 @@ public class PostDao extends CommonDao {
 	public PostInfo getPost(String pk) { 
 		// PreparedStatement pstmt = null;
 		PostInfo post = new PostInfo();
-		String query = "select * from post ORDER BY pk DESC";
+		//String query = "select * from post ORDER BY pk DESC";
 
 		Connection con = null;
 		Statement stmt = null;
@@ -124,7 +126,7 @@ public class PostDao extends CommonDao {
 			Class.forName("org.mariadb.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, pass);
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("select * from post WHERE pk=" + pk + "");
+			rs = stmt.executeQuery("select * from post WHERE pk="+pk+"");
 			while (rs.next()) {
 				post.setId(rs.getString("id"));
 				post.setPk(rs.getString("pk"));
@@ -133,12 +135,12 @@ public class PostDao extends CommonDao {
 				post.setText(rs.getString("text"));
 				post.setReg_date(rs.getTimestamp("reg_date"));
 
-				System.out.println("out.print(" + "\"<tr>\"" + ")");
+				/*System.out.println("out.print(" + "\"<tr>\"" + ")");
 				System.out.println("out.print(" + "\"<td>\"" + rs.getString("pk") + "\"</td>\"" + ")");
 				System.out.println("out.print(" + rs.getString("title") + "</td>\"" + ")");
 				System.out.println("out.print(" + "\"<td>" + rs.getString("text") + "</td>\"" + ")");
 				System.out.println("out.print(" + "\"<td>" + rs.getString("reg_date") + "</td>\"" + ")");
-				System.out.println("out.print(" + "\"</tr>\"" + ")");
+				System.out.println("out.print(" + "\"</tr>\"" + ")");*/
 				rs.close();
 			}
 		} catch (Exception e) {
@@ -146,21 +148,4 @@ public class PostDao extends CommonDao {
 		}
 		return post;
 	}
-
-	/*
-	 * public PostInfo getPost(String pk) { PreparedStatement pstmt = null; PostInfo
-	 * post = new PostInfo(); String query = "select * from post WHERE pk=?"; //
-	 * List list = new ArrayList(); Connection con = null; // Statement stmt = null;
-	 * ResultSet rs = null; // ArrayList<String> postList = new ArrayList<>();
-	 * openConnection(); try {
-	 * 
-	 * pstmt = con.prepareStatement(query); pstmt.setString(1, pk); rs =
-	 * pstmt.executeQuery(); // while (rs.next()) { rs.next();
-	 * post.setPk(rs.getString("pk")); post.setName(rs.getString("name"));
-	 * post.setTitle(rs.getString("title")); post.setText(rs.getString("text"));
-	 * post.setReg_date(rs.getTimestamp("reg_date")); rs.close(); } catch (
-	 * 
-	 * Exception e) { e.printStackTrace(); } return post; }
-	 */
-
 }

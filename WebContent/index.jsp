@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:genericpage>
-    <jsp:attribute name="head">
+	<jsp:attribute name="head">
         <title>index.jsp</title>
     </jsp:attribute>
-    <jsp:attribute name="header">
+	<jsp:attribute name="header">
         <!-- 머릿말 추가 -->
     </jsp:attribute>
-    <jsp:attribute name="footer">
+	<jsp:attribute name="footer">
         <!-- 꼬릿말 추가 -->
     </jsp:attribute>
-    <jsp:body>
+
+	<jsp:body>
+
         <h1>메인페이지에 오신걸 환영합니다.</h1>
         <c:if test="${not empty requestScope.message}">
             <div>${requestScope.message }</div>
@@ -38,5 +40,6 @@
                 </table>
             </form>
         </c:if>
+
     </jsp:body>
 </t:genericpage>
