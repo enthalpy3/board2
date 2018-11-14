@@ -57,10 +57,6 @@
 				<td width="10%">작성날짜</td>
 				<td>${sessionScope.post.reg_date}</td>
 			</tr>
-                <tr>
-				<td width="10%">test</td>
-				<td>정상작동</td>
-			</tr>
             </table>
     </jsp:body>
 </t:genericpage>
