@@ -11,7 +11,7 @@ public class CommonDao {
     String pass = "zxcv1234";*/
     String url = "jdbc:mysql://localhost:3306/lteam?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 	String user = "jsp_user";
-	String pass = "zxcv1234";
+	String pass = "qqsseer1";
 
     public Connection openConnection() {
         try {

@@ -12,6 +12,7 @@ public class EquipInfo {
 	private String num;
 	private Integer count;
 	private String reg_date2;
+	private String reg_date3;
 	private String quantity;
 
 	public String getQuantity() {
@@ -25,6 +26,12 @@ public class EquipInfo {
 	}
 	public void setReg_date2(String reg_date2) {
 		this.reg_date2 = reg_date2;
+	}
+	public String getReg_date3() {
+		return reg_date3;
+	}
+	public void setReg_date3(String reg_date3) {
+		this.reg_date3 = reg_date3;
 	}
 	public String getEquipname() {
 		return equipname;

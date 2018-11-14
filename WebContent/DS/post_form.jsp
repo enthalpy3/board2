@@ -28,13 +28,7 @@
                     <td width="10%">아이디</td>
                     <td width="90%">${sessionScope.member.id}<input
 						type="hidden" name="id" value="${sessionScope.member.id}" /></td>
-                </tr>
-          <%--  <c:forEach items="${sessionScope.member}" var="listNum"> 
-        	<tr>
-        	<td>이름</td>
-        		<td>${listNum.name}</td>
-        	</tr>
-        	</c:forEach>  --%>
+                </tr>          
                 <tr>
                     <td width="10%">이름</td>
                     <td width="90%">${sessionScope.member.name}<input

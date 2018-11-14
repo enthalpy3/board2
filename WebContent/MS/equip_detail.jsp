@@ -6,6 +6,14 @@
 <%@page import="java.sql.*" %>
 <%@page import="equipment.EquipDao" %>
 
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록</a>
+</nav>
+
 <t:genericpage>
     <jsp:attribute name="head">
         <title>equipment_detail</title>
@@ -14,7 +22,6 @@
         <!-- 페이지 머리말 -->
     </jsp:attribute>
     <jsp:attribute name="footer">
-		<a href="${pageContext.request.contextPath}/MS/equip_list.do"><button>입고목록</button></a>
     </jsp:attribute>
     <jsp:body>
         <h1 id="h1">비품상세보기</h1>
@@ -32,7 +39,7 @@
         		<td>${list.state}</td>
         		<td>${list.count}</td>
         		<td>${list.date}</td>
-        		<td>${list.reg_date2}</td>
+        		<td>${list.reg_date3}</td>
         	</tr>
        		</c:forEach>
        		<tr><td><h5 id="h5">현재 사용자 명단</h5></td></tr>
@@ -40,7 +47,7 @@
         	<tr id="tr2">
         		<td>${user.username}</td>
         		<td>
-        		<form action="${pageContext.request.contextPath}/MS/equip_return.do" method="post">
+        		<form action="${pageContext.request.contextPath}/MS/equip_return.do" method="post" id="lmsform">
         			<input type="hidden" name="num" value="${user.num}"/>
         			<input type="hidden" name="username" value="배정가능"/>
         			<input type="submit" value="반납" />
@@ -56,7 +63,7 @@
         		<a href="${pageContext.request.contextPath}/MS/equip_assign2.do?num=${assignEquip.num}" ><button>비품배정</button></a>
         		</td>
         		<td>
-        		<form action="${pageContext.request.contextPath}/MS/equip_disposal.do" method="post">
+        		<form action="${pageContext.request.contextPath}/MS/equip_disposal.do" method="post" id="lmsform">
         			<input type="hidden" name="num" value="${assignEquip.num}"/>
         			<input type="submit" value="폐기" />
         		</form>
