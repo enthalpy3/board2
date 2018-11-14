@@ -33,41 +33,42 @@ font-family: "Roboto", sans-serif;
   bottom: 0;
   height: inherit;
 }
-.top{
-position:fixed;
-width:100%;
-z-index:1;
-width:70%;
-background-color:lightblue;
+.to{
+ position: fixed;
 }
 </style>
 <body>
 
-<!--
+
+<%--       <!-- Sidebar -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
     <i class="fa fa-remove"></i>
   </a>
-  <h4 class="w3-bar-item"></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#"></a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#"></a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#"></a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#"></a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
 </nav>
- -->
-	<div class="container">
-		<header style="padding-bottom:20px">
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a> --%>
+
+		<header>
 			<jsp:include page="/common/top.jsp" flush="false" />
 			<!-- 개별 페이지의 header -->
 			<jsp:invoke fragment="header" />
 		</header>
+	<div class="container">
 		
 		  <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal"></h1>
       
+
+
 		<div id="body"><jsp:doBody /></div>
     </div>
+    
+    
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">광고받습니다.</p>
       <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>

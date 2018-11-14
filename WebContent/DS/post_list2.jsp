@@ -31,13 +31,13 @@
 		while (rs.next()) {
 			out.print("<form action="+"\""+rPath+"/DS/post_detail.do\""+">");
 			out.print("<tr>");
-			out.print("<td>"+"<span name="+"\"demo\""+">"+ rs.getString("pk")+"</span>"+ "</td>");
+			out.print("<td>"+ rs.getString("pk")+"</td>");
 			out.print("<td>" + rs.getString("name") + "</td>");
-			out.print("<td>" + "<h3><a href=\"" + rPath + "/DS/post_info.do\"" + ">");
+			out.print("<td>" + "<h3><a href=\"" + rPath + "/DS/post_detail.do?pk="+rs.getString("pk")+"\""+"/>");
 			out.print(rs.getString("title") + "</a></h3>" + "</td>");
-			out.print("<td>" + rs.getString("text") + "</td>");
+			//out.print("<td>" + rs.getString("text") + "</td>");
 			out.print("<td>" + rs.getString("reg_date") + "</td>");
-			out.print("<td><input type="+"\"submit\""+ "value="+"\"상세보기\""+"/></td>");
+			//out.print("<td><input type="+"\"submit\""+ "value="+"\"상세보기\""+"/></td>");
 			out.print("<input type="+"\"hidden\""+ "name="+"\"pk\""+"value="+"\""+rs.getString("pk")+"\""+"/>");
 			out.print("</tr>");
 			out.print("</form>");
