@@ -19,8 +19,8 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	String url = "jdbc:mysql://localhost:3306/lteam?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-	String user = "root";
-	String pw = "qqsseer1";
+	String user = "jsp_user";
+	String pw = "qwer1234";
 
 	try {
 		
