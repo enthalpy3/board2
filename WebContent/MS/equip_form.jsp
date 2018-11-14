@@ -29,7 +29,7 @@
     <jsp:body>
         <h1>비품등록</h1>
         <form action="${pageContext.request.contextPath}/MS/equip_form_reg.do" method="post">
-            <table>
+            <table id="">
                 <tr>
                     <td>품명</td>
                     <td><input type="text" name="equipname"/></td>
@@ -40,6 +40,10 @@
                     <td><input type="hidden" name="state" value="입고" /></td>
                     <td><input type="hidden" name="username" value="배정가능" /></td>
                 </tr>
+                <tr>
+                    <td>수량</td>
+                    <td><input type="number" name="quantity"/></td>
+                </tr>                
                 <tr>
                     <td><input type="submit" value="등록" /></td>
                 	<td><input type="reset" value="취소" /></td>

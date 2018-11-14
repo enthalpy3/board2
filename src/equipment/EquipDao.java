@@ -7,22 +7,27 @@ import java.util.List;
 import member.MemberInfo;
 
 public class EquipDao extends CommonDao {
-	//비품등록하기
+	//비품등록하기 
+	//수량을 입력 받아서 Integer로 변환 후 적용
 	public int insertEquip(EquipInfo equipment) {
         PreparedStatement pstmt = null;
-        String query = "INSERT INTO equipment VALUES(?,?,?,?,?,?)";
+        int quantity = Integer.parseInt(equipment.getQuantity());
+        String query = "INSERT INTO equipment VALUES(?,?,?,?,?,?,?)";
         int res = 0;
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, equipment.getEquipname());
-            pstmt.setString(2, equipment.getUsername());
-            pstmt.setString(3, equipment.getModel());
-            pstmt.setString(4, equipment.getState());
-            Timestamp ts = new Timestamp(System.currentTimeMillis());
-            pstmt.setTimestamp(5, ts);
-            pstmt.setString(6, equipment.getNum());
-            res = pstmt.executeUpdate();
+            for(int i=0; i < quantity; i++) {
+            	pstmt.setString(1, equipment.getEquipname());
+            	pstmt.setString(2, equipment.getUsername());
+            	pstmt.setString(3, equipment.getModel());
+            	pstmt.setString(4, equipment.getState());
+            	Timestamp ts = new Timestamp(System.currentTimeMillis());
+            	pstmt.setTimestamp(5, ts);
+            	pstmt.setString(6, equipment.getReg_date2());
+            	pstmt.setString(7, equipment.getNum());
+            	res = pstmt.executeUpdate();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -31,7 +36,7 @@ public class EquipDao extends CommonDao {
         return res;
     }
 	
-	//비품 목록 페이지에서 모델의 이름이 같은 수량 세기
+	//비품 목록 페이지에서 모델의 이름이 같은것 끼리의 수량
 	public List getQuan() {
         PreparedStatement pstmt = null;
         List listNum = new ArrayList();
@@ -61,7 +66,7 @@ public class EquipDao extends CommonDao {
 	public List getDetail(String model) {
         PreparedStatement pstmt = null;
         List list = new ArrayList();
-        String query = "SELECT DATE_FORMAT(reg_date, '%Y-%m-%d') as date, state, COUNT(*) as count FROM equipment Where model=? GROUP BY date, state";
+        String query = "SELECT DATE_FORMAT(reg_date, '%Y-%m-%d') as date, DATE_FORMAT(reg_date2, '%Y-%m-%d') as reg_date2, state, COUNT(*) as count FROM equipment Where model=? GROUP BY date, reg_date2, state";
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
@@ -70,6 +75,7 @@ public class EquipDao extends CommonDao {
             for(int i=0; rs.next(); i++) {
             	EquipInfo equipment = new EquipInfo();
                 equipment.setDate(rs.getString("date"));
+                equipment.setReg_date2(rs.getString("reg_date2"));
             	equipment.setState(rs.getString("state"));
             	equipment.setCount(rs.getInt("count"));
             	
@@ -110,6 +116,7 @@ public class EquipDao extends CommonDao {
         return equipment;
     }
 	
+	//
 	public EquipInfo getAssignNum(String num) {
         PreparedStatement pstmt = null;
         EquipInfo equipment = new EquipInfo();
@@ -208,12 +215,12 @@ public class EquipDao extends CommonDao {
 		return username;
 	}
 	
-	//상세페이지에서 사용자 명단 불러오기
+	//상세페이지에서 배정가능 비품 불러오기
 	public List getAssignEquip(String model) {
         PreparedStatement pstmt = null;
 
         List assignEquip = new ArrayList();
-        String query = "SELECT * FROM equipment WHERE model=? AND username = '배정가능'";
+        String query = "SELECT * FROM equipment WHERE model=? AND username = '배정가능' AND state = '입고'";
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
@@ -223,7 +230,7 @@ public class EquipDao extends CommonDao {
             	EquipInfo username = new EquipInfo();
             	username.setUsername(rs.getString("username"));
             	username.setNum(rs.getString("num"));
-            	username.setState(rs.getString("state"));            
+            	username.setState(rs.getString("state"));
             	username.setReg_date(rs.getTimestamp("reg_date"));
 
             	assignEquip.add(i, username);
@@ -246,6 +253,25 @@ public class EquipDao extends CommonDao {
         try {
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, equipment.getUsername());
+            pstmt.setString(2, equipment.getNum());
+            res = pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return res;
+	}
+	//폐기
+	public int equipDisposal(EquipInfo equipment) {
+		PreparedStatement pstmt = null;
+        String query = "UPDATE equipment SET state='폐기', reg_date2=? WHERE num=?";
+        int res = 0;
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            Timestamp ts = new Timestamp(System.currentTimeMillis());
+            pstmt.setTimestamp(1, ts);
             pstmt.setString(2, equipment.getNum());
             res = pstmt.executeUpdate();
         } catch (Exception e) {

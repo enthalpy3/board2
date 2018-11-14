@@ -24,12 +24,12 @@
                 <tr>
                     <td>품명</td>
                     <td>${sessionScope.equip.equipname}</td>
-                    <input type="hidden" name="equipname" value="${sessionScope.equip.equipname}"/>
+                    <td><input type="hidden" name="equipname" value="${sessionScope.equip.equipname}"/></td>
                 </tr>
                 <tr>
                     <td>고유번호</td>
                     <td>${sessionScope.equip.num}</td>
-                	<input type="hidden" name="num" value="${sessionScope.equip.num}"/>
+                	<td><input type="hidden" name="num" value="${sessionScope.equip.num}"/></td>
                 </tr>
                 <tr>
                     <td>사용자 이름</td>

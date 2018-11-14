@@ -22,15 +22,17 @@
         <h5>모델번호 : ${sessionScope.equip.model}</h5>
         <table>
         	<tr>
-        		<td>처리날짜</td>
         		<td>상태</td>
         		<td>수량</td>
+        		<td>입고날짜</td>
+        		<td>폐기날짜</td>
         	</tr>
         	<c:forEach items="${sessionScope.equipment}" var="list" >
         	<tr>
-        		<td>${list.date}</td>
         		<td>${list.state}</td>
         		<td>${list.count}</td>
+        		<td>${list.date}</td>
+        		<td>${list.reg_date2}</td>
         	</tr>
        		</c:forEach>
        		<tr><td>현재 사용자 명단</td></tr>
@@ -52,6 +54,12 @@
         		<td>${assignEquip.num}</td>
         		<td>
         		<a href="${pageContext.request.contextPath}/MS/equip_assign2.do?num=${assignEquip.num}" ><button>비품배정</button></a>
+        		</td>
+        		<td>
+        		<form action="${pageContext.request.contextPath}/MS/equip_disposal.do" method="post">
+        			<input type="hidden" name="num" value="${assignEquip.num}"/>
+        			<input type="submit" value="폐기" />
+        		</form>
         		</td>
         		</tr>
        		</c:forEach>       		
