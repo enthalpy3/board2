@@ -33,12 +33,44 @@ font-family: "Roboto", sans-serif;
   bottom: 0;
   height: inherit;
 }
-.top{
+
+.to {
 position:fixed;
-width:100%;
-z-index:1;
-width:70%;
-background-color:lightblue;
+}
+
+#tableform {
+width : 75%;
+text-align:center;
+border-bottom:1px solid lightgray;
+}
+#table2 tr td{
+border-right:1px solid #EDEDED;
+}
+#tr {
+line-height:200%;
+}
+#tr td {
+border-top:1px solid #EDEDED;
+}
+#tr2 {
+line-height:130%;
+}
+#tr2 td {
+border-top:1px solid #EDEDED;
+}
+
+#h1 {
+width:75%;
+padding-bottom : 25px;
+margin-bottom : 25px;
+border-bottom : 1px solid lightgray;
+}
+
+#h5 {
+padding:30px 0px 5px 0px;
+}
+#modelh5 {
+padding-bottom:20px;
 }
 </style>
 <body>
