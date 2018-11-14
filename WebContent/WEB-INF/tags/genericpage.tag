@@ -72,6 +72,8 @@ padding-bottom:20px;
 }
 
 </style>
+
+
 <body>
 
 	<header>
@@ -79,6 +81,12 @@ padding-bottom:20px;
 		<!-- 개별 페이지의 header -->
 		<jsp:invoke fragment="header" />
 	</header>
+	<!-- 블랙 Overlay effect -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- sidebar 와 겹치지 않기 위한 div-->
+<div class="w3-main" style="margin-left:250px">
+
 	<div class="container">
 
 		<div class="w3-row w3-padding-64">
@@ -97,6 +105,7 @@ padding-bottom:20px;
 				
 			</div>
 		</div>
+</div>
 		<footer>
 			<!-- 개별 페이지의 footer -->
 			<jsp:invoke fragment="footer" />
