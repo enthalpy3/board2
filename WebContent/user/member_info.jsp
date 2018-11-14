@@ -38,14 +38,9 @@
                 <tr><td>이메일</td><td><input type="text" name="email" id="email" value="${sessionScope.member.email}"></tr>
                 <tr><td>추천인</td><td><input type="text" name="recommender" id="recommender" value="${sessionScope.member.recommender}"></tr>
                 <tr><td>가입날짜</td><td>${sessionScope.member.reg_date}</td></tr>
-                <tr><td colspan=2><input type="submit" value="수정"></td></tr>
+                <tr style="text-align: right"><td colspan=2><input type="submit" value="수정완료"></td></tr>
             </table>
         </form>
 
-      <%--   <a href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록</a>
-        <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a>
-        <a href="${pageContext.request.contextPath}/DS/post_list.do">글보기1</a>
-        <a href="${pageContext.request.contextPath}/DS/post_list.do2">글보기2</a> --%>
-       <%--  <a href="${pageContext.request.contextPath}/user/delete.do?=${ID}">회원탈퇴</a> --%>
     </jsp:body>
 </t:genericpage>
