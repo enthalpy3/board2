@@ -29,15 +29,15 @@
         <!-- 페이지 꼬리말 -->
     </jsp:attribute>
     <jsp:body>
-        <h1>비품목록</h1>
-        <table>
+        <h1 id="h1">비품목록</h1>
+        <table id="tableform">
         	<tr>
-        		<td>모델번호</td>
-        		<td>품명</td>
-        		<td>수량</td>
+        		<th>모델번호</th>
+        		<th>품명</th>
+        		<th>수량</th>
         	</tr>        
         	<c:forEach items="${sessionScope.equipment}" var="listNum" >
-        	<tr>
+        	<tr id="tr">
         		<td><a href="${pageContext.request.contextPath}/MS/equip_detail.do?model=${listNum.model}" >${listNum.model}</a></td>
         		<td>${listNum.equipname}</td>
         		<td>${listNum.count}</td>

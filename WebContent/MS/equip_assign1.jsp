@@ -25,7 +25,7 @@
         <!-- 페이지 꼬리말 -->
     </jsp:attribute>
     <jsp:body>
-        <h1>비품배정</h1>
+        <h1 id="h1">비품배정</h1>
         <form action="${pageContext.request.contextPath}/MS/equip_assign_reg.do" method="post">
             <table>
                 <tr>
