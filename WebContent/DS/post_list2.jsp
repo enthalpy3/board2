@@ -20,7 +20,7 @@
 	ResultSet rs = null;
 	String url = "jdbc:mysql://localhost:3306/lteam?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 	String user = "root";
-	String pw = "zxcv1234";
+	String pw = "qqsseer1";
 
 	try {
 		

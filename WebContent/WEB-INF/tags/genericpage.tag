@@ -41,20 +41,32 @@ width : 75%;
 text-align:center;
 border-bottom:1px solid lightgray;
 }
+
 #table2 tr td{
 border-right:1px solid #EDEDED;
 }
+
 #tr {
 line-height:200%;
 }
+
 #tr td {
 border-top:1px solid #EDEDED;
 }
+
 #tr2 {
 line-height:130%;
 }
+
 #tr2 td {
 border-top:1px solid #EDEDED;
+}
+#assign tr td {
+padding-right:25px;
+}
+
+#lmsform {
+margin-bottom:0px;
 }
 
 #h1 {
@@ -62,6 +74,18 @@ width:75%;
 padding-bottom : 25px;
 margin-bottom : 25px;
 border-bottom : 1px solid lightgray;
+}
+#button1 {
+width:280px;
+padding: 20px 0px 0px 170px;
+margin-top : 20px;
+border-top : 1px solid lightgray;
+}
+#button2 {
+width:30%;
+padding: 20px 0px 0px 100px;
+margin-top : 20px;
+border-top : 1px solid lightgray;
 }
 
 #h5 {

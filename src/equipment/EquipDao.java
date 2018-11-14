@@ -66,7 +66,7 @@ public class EquipDao extends CommonDao {
 	public List getDetail(String model) {
         PreparedStatement pstmt = null;
         List list = new ArrayList();
-        String query = "SELECT DATE_FORMAT(reg_date, '%Y-%m-%d') as date, DATE_FORMAT(reg_date2, '%Y-%m-%d') as reg_date2, state, COUNT(*) as count FROM equipment Where model=? GROUP BY date, reg_date2, state";
+        String query = "SELECT DATE_FORMAT(reg_date, '%Y-%m-%d') as date, DATE_FORMAT(reg_date2, '%Y-%m-%d') as reg_date3, state, COUNT(*) as count FROM equipment Where model=? GROUP BY date, reg_date3, state";
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
@@ -75,7 +75,7 @@ public class EquipDao extends CommonDao {
             for(int i=0; rs.next(); i++) {
             	EquipInfo equipment = new EquipInfo();
                 equipment.setDate(rs.getString("date"));
-                equipment.setReg_date2(rs.getString("reg_date2"));
+                equipment.setReg_date3(rs.getString("reg_date3"));
             	equipment.setState(rs.getString("state"));
             	equipment.setCount(rs.getInt("count"));
             	

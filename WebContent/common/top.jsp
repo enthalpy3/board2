@@ -3,6 +3,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <div class="w3-bar w3-theme w3-left-align w3-large w3-theme-l1 w3-top">
 	<a
 		class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"
@@ -20,6 +21,7 @@
 			class="w3-bar-item w3-button w3-hide-small w3-hover-white">로그아웃</a>
 	</c:if>
 	<c:if test="${empty ID }">
+>>>>>>> e4951ec003be1206a5470a070182fca31580959a
 		<a href="${pageContext.request.contextPath}/user/register_form.do"
 			class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">회원가입</a>
 	</c:if>

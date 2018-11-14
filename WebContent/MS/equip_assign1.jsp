@@ -11,8 +11,8 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_form.do">입고등록</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_list.do">입고목록</a>
 </nav>
 <t:genericpage>
     <jsp:attribute name="head">
@@ -46,11 +46,11 @@
         		</select>
         		</td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="등록" /></td>
-                	<td><input type="reset" value="취소" /></td>
-                </tr>
             </table>
+            <div id="button1">
+	            <input type="submit" value="등록" />
+    	        <input type="reset" value="취소" />
+        	</div>
         </form>
     </jsp:body>
 </t:genericpage>
