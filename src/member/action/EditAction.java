@@ -29,7 +29,7 @@ public class EditAction implements CommandAction {
             request.setAttribute("message", text);
             // response.sendRedirect(rPath+"/home.do");
             
-            return "/index.jsp";
+            return "/user/pass_check2.jsp";
         }
     }
 }

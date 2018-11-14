@@ -106,7 +106,7 @@ public class MemberDao extends CommonDao {
     }
     
     /*
-     * 회원가입 중복확인
+     * 비밀번호 확인
      */
     public boolean isMember2(String pass) {
         PreparedStatement pstmt = null;
@@ -157,10 +157,9 @@ public class MemberDao extends CommonDao {
     }
     
  // 이름을 추가한다?
- 	public List getMemberList() {
+ 	/*public List getMemberList() {
          PreparedStatement pstmt = null;
          List listNum = new ArrayList();
-//         String query = "SELECT name, COUNT(*) as count FROM equipment WHERE state='입고' GROUP BY model";
          String query = "SELECT name FROM member";
          openConnection();
          try {
@@ -178,6 +177,6 @@ public class MemberDao extends CommonDao {
              closeConnection();
          }
          return listNum;
-     }
+     }*/
 
 }

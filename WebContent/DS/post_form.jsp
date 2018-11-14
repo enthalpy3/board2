@@ -7,6 +7,14 @@
 <%@page import="java.sql.*" %>
 <%@page import="member.MemberDao" %>
 
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
+</nav>
+
 <t:genericpage>
 	<jsp:attribute name="head">
         <title>register_form</title>
@@ -16,8 +24,6 @@
     </jsp:attribute>
 	<jsp:attribute name="footer">
         <!-- 꼬리말 추가 -->
-        <script
-			src="${pageContext.request.contextPath}/static/js/user.js"></script>
     </jsp:attribute>
 	<jsp:body>
         <h1>글쓰기</h1>
@@ -28,7 +34,7 @@
                     <td width="10%">아이디</td>
                     <td width="90%">${sessionScope.member.id}<input
 						type="hidden" name="id" value="${sessionScope.member.id}" /></td>
-                </tr>          
+                </tr>
                 <tr>
                     <td width="10%">이름</td>
                     <td width="90%">${sessionScope.member.name}<input
@@ -42,11 +48,8 @@
                 <tr>
                     <td width="10%">내용</td>
                     <td height="500px">
-
-                   <!--  <input type="hidden" name="text" id="text" /> -->
                     <textarea name="text"
 							style="width: 100%; height: 500px" maxlength="500" form="text"></textarea>
-
                     </td>
                 </tr>
                 <tr style="text-align:right">

@@ -11,12 +11,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="elfunc" uri="ElFunctions"%>
 
-<%
-	request.setCharacterEncoding("utf-8");
-%>
-<%
-	String rPath = request.getContextPath();
-%>
+
 
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
       <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
@@ -44,16 +39,9 @@
 			<th width="5%">순번</th>
 			<th width="8%">이름</th>
 			<th width="72%">제목</th>
-			<%-- <th width="50%">내용</th> --%>
 			<th width="15%">글쓴날짜</th>
-			<%-- <th width="7%">상세보기</th> --%>
-			<h1>${sessionScope.post}</h1>
-			
 		<jsp:include page="/DS/post_list2.jsp" flush="false" />
-			
 		</table>
-		<%-- <a href="${pageContext.request.contextPath}/DS/post_form.do">글쓰기</a> --%>
-        
     </jsp:body>
 </t:genericpage>
 
