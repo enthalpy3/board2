@@ -55,7 +55,7 @@
 
                     </td>
                 </tr>
-                <tr>
+                <tr style="text-align:right">
                     <td colspan=2><input type="submit" value="저장" /></td>
                 </tr>
             </table>

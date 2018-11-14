@@ -7,22 +7,21 @@ import javax.servlet.http.HttpSession;
 import member.controller.CommandAction;
 import member.MemberDao;
 
-public class LoginAction implements CommandAction {
+public class EditAction implements CommandAction {
 
     @Override
     public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
         MemberDao data = new MemberDao();
 
-        String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         String rPath = request.getContextPath();
         String text = null;
 
-        if (data.isMember(id, pass)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("ID", id);
-            response.sendRedirect(rPath+"/home.do");
+        if (data.isMember2(pass)) {
+            /*HttpSession session = request.getSession();
+            session.setAttribute("ID", id);*/
+            response.sendRedirect(rPath+"/user/member_info.do");
             
             return null;
         } else {

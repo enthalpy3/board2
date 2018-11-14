@@ -106,6 +106,28 @@ public class MemberDao extends CommonDao {
     }
     
     /*
+     * 회원가입 중복확인
+     */
+    public boolean isMember2(String pass) {
+        PreparedStatement pstmt = null;
+        String query = "SELECT * FROM member WHERE pass=?";
+        boolean res = false;
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, pass);
+            ResultSet rs = pstmt.executeQuery();
+            res = rs.next();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return res;
+    }
+    
+    /*
      * 기존 회원정보 확인
      */
     public MemberInfo getMember(String id) {
