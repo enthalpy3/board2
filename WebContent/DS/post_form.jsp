@@ -4,15 +4,21 @@
 <%@page session="true"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="java.sql.*" %>
-<%@page import="member.MemberDao" %>
+<%@page import="java.sql.*"%>
+<%@page import="member.MemberDao"%>
 
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-    <i class="fa fa-remove"></i>
-  </a>
-  <h4 class="w3-bar-item"><b>Menu</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
+<nav
+	class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left"
+	id="mySidebar">
+	<a href="javascript:void(0)" onclick="w3_close()"
+		class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large"
+		title="Close Menu"> <i class="fa fa-remove"></i>
+	</a>
+	<h4 class="w3-bar-item">
+		<b>Menu</b>
+	</h4>
+	<a class="w3-bar-item w3-button w3-hover-black"
+		href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
 </nav>
 
 <t:genericpage>
@@ -52,10 +58,11 @@
 							style="width: 100%; height: 500px" maxlength="500" form="text"></textarea>
                     </td>
                 </tr>
-                <tr style="text-align:right">
+                <tr style="text-align: right">
                     <td colspan=2><input type="submit" value="저장" /></td>
                 </tr>
             </table>
         </form>
     </jsp:body>
 </t:genericpage>
+
