@@ -26,7 +26,7 @@
     <jsp:body>
         <h1 id="h1">비품상세보기</h1>
         <h5>품명 : ${sessionScope.equip.equipname}</h5>
-        <h5 id="modelh5">모델번호 : ${sessionScope.equip.model}</h5>
+        <h5>모델 : ${sessionScope.equip.model}</h5>
         <table id="tableform">
         	<tr>
         		<th>상태</th>
@@ -35,7 +35,7 @@
         		<th>폐기날짜</th>
         	</tr>
         	<c:forEach items="${sessionScope.equipment}" var="list" >
-        	<tr id="tr">
+        	<tr id="tr">      
         		<td>${list.state}</td>
         		<td>${list.count}</td>
         		<td>${list.date}</td>
