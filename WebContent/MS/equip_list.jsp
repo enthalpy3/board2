@@ -14,7 +14,6 @@
   <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_form.do">입고등록</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_assign1.do">비품배정</a>
 </nav>
-
 <t:genericpage>
     <jsp:attribute name="head">
         <title>equipment_list</title>
@@ -42,49 +41,8 @@
         		<td>${listNum.equipname}</td>
         		<td>${listNum.count}</td>
         	</tr>
-        	</c:forEach>		
+        	</c:forEach>
 		</table>
-		<%-- <a href="${pageContext.request.contextPath}/MS/equip_form.do">입고등록</a>		
-		<a href="${pageContext.request.contextPath}/MS/equip_assign1.do">비품배정</a> --%>
-    </jsp:body>
+		<h5>${sessionScope.page}</h5>
+	</jsp:body>
 </t:genericpage>
-
-        <%-- <form action="${pageContext.request.contextPath}/user/update.do" method="post">
-            <table>
-                <tr><th colspan=2>회원정보</th></tr>
-                <tr><td>${sessionScope.equipment.equipname}</td>
-                <td>${sessionScope.equipment.model}</td></tr>
-                <tr><td colspan=2><input type="submit" value="수정"></td></tr>
-            </table>
-        </form> --%>
-        
-        
-        <%-- <%
-        request.setCharacterEncoding("utf-8");		
-		EquipDao data = new EquipDao();
-		String rPath = request.getContextPath();
-		
-		Connection con = null;
-		Statement stmt = null;
-		ResultSet rs = null;		
-		
-		String url = "jdbc:mysql://localhost:3306/lteam";
-		String user = "jsp_user";
-		String pass = "qqsseer1";
-		
-		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			con = DriverManager.getConnection(url, user, pass);
-			stmt = con.createStatement();
-			rs = stmt.executeQuery("select * from equipment");
-			while (rs.next()) {
-				out.println("<tr>");
-				out.println("<td>" + rs.getString("equipname") + "</td>");
-				out.println("<td>" + rs.getString("model") + "</td>" + "<br>");
-				out.println("</tr>");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	%>
- --%>
