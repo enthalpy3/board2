@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page import="fileup.FileDao"%>
+<%@ page import="file.FileDao"%>
 <%@ page import="java.io.IOException"%>
 <%@ page import="java.nio.file.Files"%>
 
@@ -24,6 +24,7 @@
 			String fileReal = MultipartRequest.getFilesystemName(parameter);
 
 			if(fileName == null) continue;
+			//4개의 확장자만 업로드 된다.
 			if (!fileName.endsWith(".txt") && !fileName.endsWith(".hwp") && !fileName.endsWith(".pdf")
 					&& !fileName.endsWith(".xls")) {
 				File file = new File(directory + fileReal);

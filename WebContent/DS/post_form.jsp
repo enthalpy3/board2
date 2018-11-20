@@ -21,6 +21,7 @@
 		href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
 </nav>
 
+
 <t:genericpage>
 	<jsp:attribute name="head">
         <title>register_form</title>
@@ -33,7 +34,8 @@
     </jsp:attribute>
 	<jsp:body>
         <h1>글쓰기</h1>
-        <form action="${pageContext.request.contextPath}/DS/post_reg.do"
+        <form name="form1"
+			action="${pageContext.request.contextPath}/DS/post_reg.do"
 			method="post" id="text">
             <table border=2 width="100%">
                 <tr>
@@ -48,8 +50,10 @@
                 </tr>
                 <tr>
                     <td width="10%">제목</td>
-                    <td><input placeholder="제목없음"
-						style="width: 100%" type="text" name="title" maxlength="50" /></td>
+                    <td>
+        <input placeholder="제목을 입력 해주세요" style="width: 100%" type="text"
+						name="title" maxlength="50" />
+						</td>
                 </tr>
                 <tr>
                     <td width="10%">내용</td>
