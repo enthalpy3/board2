@@ -1,3 +1,6 @@
+<%@page import="post.PostDao"%>
+<%@page import="post.PostInfo"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -48,10 +51,28 @@
 			<th width="8%">이름</th>
 			<th width="72%">제목</th>
 			<th width="15%">글쓴날짜</th>
-		<jsp:include page="/DS/post_list2.jsp" flush="false" />
-		
+		<c:forEach items="${sessionScope.post}" var="postList" >
+        	<tr>
+        		<td>${postList.pk}</td>
+        		<td>${postList.name}</td>
+        		<td><a href="${pageContext.request.contextPath}/DS/post_detail.do?pk=${postList.pk}" >${postList.title}</a></td>
+        		<td>${postList.reg_date}</td>
+        	</tr>
+        	</c:forEach>
 		</table>
+		 <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
     </jsp:body>
 </t:genericpage>
+
 
 

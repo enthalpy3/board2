@@ -57,4 +57,14 @@ public class PostInfo {
 	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
 	}
+	
+	/*public PostInfo(String id, String name, String title, String text, Timestamp reg_date, String pk) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.title = title;
+		this.text = text;
+		this.reg_date = reg_date;
+		this.pk = pk;
+	}*/
 }
