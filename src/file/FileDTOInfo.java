@@ -1,4 +1,4 @@
-package fileup;
+package file;
 
 public class FileDTOInfo {
 	private String fileName;

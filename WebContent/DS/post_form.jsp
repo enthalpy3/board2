@@ -21,6 +21,7 @@
 		href="${pageContext.request.contextPath}/DS/post_list.do">글보기</a>
 </nav>
 
+
 <t:genericpage>
 	<jsp:attribute name="head">
         <title>register_form</title>
@@ -33,7 +34,7 @@
     </jsp:attribute>
 	<jsp:body>
         <h1>글쓰기</h1>
-        <form action="${pageContext.request.contextPath}/DS/post_reg.do"
+        <form name="form1" action="${pageContext.request.contextPath}/DS/post_reg.do"
 			method="post" id="text">
             <table border=2 width="100%">
                 <tr>

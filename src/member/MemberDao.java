@@ -42,11 +42,15 @@ public class MemberDao extends CommonDao {
      */
     public int removeMember(String id) {
         PreparedStatement pstmt = null;
-        String query = "DELETE FROM member WHERE id=?";
+        String query1 = "DELETE FROM member WHERE id=?";
+        String query2 = "DELETE FROM post WHERE id=?";
         int res = 0;
         openConnection();
         try {
-            pstmt = con.prepareStatement(query);
+            pstmt = con.prepareStatement(query1);
+            pstmt.setString(1, id);
+            res = pstmt.executeUpdate();
+            pstmt = con.prepareStatement(query2);
             pstmt.setString(1, id);
             res = pstmt.executeUpdate();
         } catch (Exception e) {

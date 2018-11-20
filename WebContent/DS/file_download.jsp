@@ -2,14 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page import="fileup.FileDao"%>
-<%@ page import="fileup.FileDTOInfo"%>
+<%@ page import="file.FileDao"%>
+<%@ page import="file.FileDTOInfo"%>
 
 <%@ page import="java.io.File"%>
 
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
