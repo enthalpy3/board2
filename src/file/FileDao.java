@@ -17,10 +17,11 @@ public class FileDao extends CommonDao {
 		openConnection();
 		try {
 			pstmt = con.prepareStatement(query);
+			
 			pstmt.setString(1, fileName);
 			pstmt.setString(2, fileReal);
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
-			pstmt.setTimestamp(3, ts);
+			pstmt.setTimestamp(4, ts);
 			res = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

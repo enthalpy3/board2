@@ -1,9 +1,19 @@
 package file;
 
 public class FileDTOInfo {
+	private String pk;
 	private String fileName;
 	private String fileReal;
 	private int downloadCount;
+
+	
+	public String getPk() {
+		return pk;
+	}
+
+	public void setPk(String pk) {
+		this.pk = pk;
+	}
 
 	public int getDownloadCount() {
 		return downloadCount;
@@ -31,6 +41,7 @@ public class FileDTOInfo {
 
 	public FileDTOInfo(String fileName, String fileReal, int downloadCount) {
 		super();
+		
 		this.fileName = fileName;
 		this.fileReal = fileReal;
 		this.downloadCount = downloadCount;
