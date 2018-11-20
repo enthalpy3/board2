@@ -32,7 +32,7 @@
         <h1 id="h1">비품목록</h1>
         <table id="tableform">
         	<tr>
-        		<th>모델번호</th>
+        		<th>모델</th>
         		<th>품명</th>
         		<th>수량</th>
         	</tr>        

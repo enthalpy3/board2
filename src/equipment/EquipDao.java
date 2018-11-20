@@ -262,6 +262,7 @@ public class EquipDao extends CommonDao {
         }
         return res;
 	}
+	
 	//폐기
 	public int equipDisposal(EquipInfo equipment) {
 		PreparedStatement pstmt = null;
@@ -282,34 +283,20 @@ public class EquipDao extends CommonDao {
         return res;
 	}
 	
-	
-	//상세보기페이지 사용
-	/*public List getDetail() {
-        PreparedStatement pstmt = null;
-        List list = new ArrayList();
-        String query = "SELECT * FROM equipment ORDER BY reg_date";
+	public int deleteUsername(String username) {
+		PreparedStatement pstmt = null;
+        String query = "UPDATE equipment SET username='배정가능' WHERE username=?";
+        int res = 0;
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
-            ResultSet rs = pstmt.executeQuery();
-            for(int i=0; rs.next(); i++) {
-            	EquipInfo equipment = new EquipInfo();
-            	equipment.setEquipname(rs.getString("equipname"));
-            	equipment.setUsername(rs.getString("username"));
-            	equipment.setModel(rs.getString("model"));
-            	equipment.setState(rs.getString("state"));
-            	equipment.setNum(rs.getString("num"));
-            	equipment.setQuantity(rs.getInt("quantity"));
-            	equipment.setReg_date(rs.getTimestamp("reg_date"));
-            	
-            	list.add(i, equipment);
-            }
-            rs.close();
+            pstmt.setString(1, username);
+            res = pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeConnection();
         }
-        return list;
-    }*/
+        return res;
+	}
 }
