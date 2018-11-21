@@ -10,7 +10,7 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="${pageContext.request.contextPath}/MS/equip_list.do?page=1">비품목록</a>
 </nav>
 <t:genericpage>
     <jsp:attribute name="head">

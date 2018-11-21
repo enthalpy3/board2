@@ -12,7 +12,7 @@
 		class="w3-bar-item w3-button w3-theme-l1">home</a> <a
 		href="${pageContext.request.contextPath}/DS/post_list.do"
 		class="w3-bar-item w3-button w3-hide-small w3-hover-white">글보기</a> <a
-		href="${pageContext.request.contextPath}/MS/equip_list.do"
+		href="${pageContext.request.contextPath}/MS/equip_list.do?page=1"
 		class="w3-bar-item w3-button w3-hide-small w3-hover-white">비품목록</a>
 	<c:if test="${not empty ID }">
 		<a href="${pageContext.request.contextPath}/user/pass_check.do"

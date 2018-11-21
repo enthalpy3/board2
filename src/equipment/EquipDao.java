@@ -7,7 +7,8 @@ import java.util.List;
 import member.MemberInfo;
 
 public class EquipDao extends CommonDao {
-	//비품등록하기 
+	
+	//비품등록하기
 	//수량을 입력 받아서 Integer로 변환 후 적용
 	public int insertEquip(EquipInfo equipment) {
         PreparedStatement pstmt = null;
@@ -37,13 +38,15 @@ public class EquipDao extends CommonDao {
     }
 	
 	//비품 목록 페이지에서 모델의 이름이 같은것 끼리의 수량
-	public List getQuan() {
+	public List getQuan(int page2) {
         PreparedStatement pstmt = null;
         List listNum = new ArrayList();
-        String query = "SELECT model, equipname, COUNT(*) as count FROM equipment WHERE state='입고' GROUP BY model";
+//        String query = "SELECT TB.model, TB.equipname, TB.count FROM (SELECT model, equipname, COUNT(*) as count, ROW_NUMBER() OVER() as ROWNO FROM equipment WHERE state='입고' GROUP BY model) as TB WHERE TB.ROWNO >= 1 AND TB.ROWNO <= 2";
+        String query = "SELECT model, equipname, COUNT(*) as count FROM equipment WHERE state='입고' GROUP BY model limit ?, 5";
         openConnection();
         try {
             pstmt = con.prepareStatement(query);
+            pstmt.setInt(1, page2);
             ResultSet rs = pstmt.executeQuery();
             for(int i=0; rs.next(); i++) {
             	EquipInfo equipment = new EquipInfo();
@@ -62,7 +65,32 @@ public class EquipDao extends CommonDao {
         return listNum;
     }
 	
-	//비품 상세페이지에서 상태,날짜별로 수량세기
+	//그룹으로 묶은 게시글수의 개수를 가져오기 위한 쿼리
+    public List getRowNum() {
+    	PreparedStatement pstmt = null;
+        List rowNum = new ArrayList();
+        String query = "SELECT model, COUNT(*) as count FROM equipment WHERE state='입고' GROUP BY model";
+        openConnection();
+        try {
+            pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+            for(int i=0; rs.next(); i++) {
+            	EquipInfo equipment = new EquipInfo();
+            	equipment.setCount(rs.getInt("count"));
+            	
+            	rowNum.add(i, equipment);            	
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return rowNum;
+    }
+
+	
+	//비품 상세페이지에서 상태,날짜별로 수량
 	public List getDetail(String model) {
         PreparedStatement pstmt = null;
         List list = new ArrayList();
@@ -116,7 +144,7 @@ public class EquipDao extends CommonDao {
         return equipment;
     }
 	
-	//
+	//상세보기에서 배정할시 고유번호가 자동으로 들어감
 	public EquipInfo getAssignNum(String num) {
         PreparedStatement pstmt = null;
         EquipInfo equipment = new EquipInfo();
@@ -128,11 +156,7 @@ public class EquipDao extends CommonDao {
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             equipment.setEquipname(rs.getString("equipname"));
-            equipment.setUsername(rs.getString("username"));
-            equipment.setModel(rs.getString("model"));
-            equipment.setState(rs.getString("state"));
             equipment.setNum(rs.getString("num"));
-            equipment.setReg_date(rs.getTimestamp("reg_date"));
             rs.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -214,6 +238,7 @@ public class EquipDao extends CommonDao {
 		}
 		return username;
 	}
+	
 	
 	//상세페이지에서 배정가능 비품 불러오기
 	public List getAssignEquip(String model) {
