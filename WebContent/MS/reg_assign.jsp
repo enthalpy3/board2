@@ -19,7 +19,7 @@
             <div>${requestScope.message }</div>
         </c:if>
         <c:if test="${not empty ID }">
-            <a href="${pageContext.request.contextPath}/MS/equip_list.do">비품목록 화면으로 돌아가기</a>
+            <a href="${pageContext.request.contextPath}/MS/equip_list.do?page=1">비품목록 화면으로 돌아가기</a>
         </c:if>
         <c:if test="${empty ID }">
             <a href="${pageContext.request.contextPath}/MS/equip_assign.do">비품배정 화면으로 돌아가기</a>
