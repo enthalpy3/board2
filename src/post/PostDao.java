@@ -140,7 +140,7 @@ public class PostDao extends CommonDao {
 		return post;
 	}
 
-	// 업로드된 파일 리스트 형식으로 만든다.
+	// 게시글을 리스트 형태로 만든다.
 	public ArrayList<PostInfo> getList() {
 		String query = "SELECT * FROM post";
 		ArrayList<PostInfo> list = new ArrayList<PostInfo>();

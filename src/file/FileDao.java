@@ -17,7 +17,6 @@ public class FileDao extends CommonDao {
 		openConnection();
 		try {
 			pstmt = con.prepareStatement(query);
-			
 			pstmt.setString(1, fileName);
 			pstmt.setString(2, fileReal);
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
